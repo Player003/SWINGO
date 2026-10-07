@@ -2,7 +2,7 @@
 
 ## 1. Qué es Swingo
 
-**Swingo** es una plataforma digital (web + iOS + Android) que centraliza **alojamiento, marketplace y comunidad** para trabajadores **FIFO** (*Fly-In, Fly-Out*) y trabajadores "golondrina": personas que vuelan a una mina u obra durante su *swing* (p. ej. 2 semanas) y luego vuelven a la ciudad durante sus días libres.
+**Swingo** es una plataforma digital (web + iOS + Android) que centraliza **alojamiento, marketplace y comunidad** para trabajadores **FIFO** (_Fly-In, Fly-Out_) y trabajadores "golondrina": personas que vuelan a una mina u obra durante su _swing_ (p. ej. 2 semanas) y luego vuelven a la ciudad durante sus días libres.
 
 Mercado inicial: **Australia** (Perth / Western Australia, Brisbane, etc.). Visión: **global**, cualquier país con trabajo rotativo (minería, oil & gas, construcción remota, offshore, temporadas agrícolas).
 
@@ -15,18 +15,18 @@ En Australia, la mayoría de backpackers y trabajadores FIFO viven en casas comp
 - El que vuelve **tiene dónde quedarse** durante sus días libres.
 - El que se va **no paga la renta en vano**: alguien la cubre mientras está en el sitio.
 
-Es un *win-win* que ya ocurre de forma espontánea y **gratuita**, pero hoy solo funciona por **grupos cerrados de WhatsApp**.
+Es un _win-win_ que ya ocurre de forma espontánea y **gratuita**, pero hoy solo funciona por **grupos cerrados de WhatsApp**.
 
 ## 3. Problema
 
-| Problema | Detalle |
-|---|---|
-| Acceso limitado | Muchos grupos, cerrados y separados; no todos llegan a ellos. |
-| Información efímera | Mensajes temporales (24 h): una habitación publicada ayer "desaparece" aunque siga libre. |
-| Sin organización | No se puede filtrar por zona, fechas, precio, nº de personas, pareja, solo mujeres, etc. |
-| Sin referencias | No hay valoraciones ni reputación de habitaciones, anfitriones o huéspedes. |
-| Poca anticipación | Difícil planificar y comparar antes de los días libres. |
-| Lo mismo pasa con la compraventa | Botas, ropa de trabajo, autos para ir a trabajar… todo pasa por WhatsApp y se pierde. |
+| Problema                         | Detalle                                                                                   |
+| -------------------------------- | ----------------------------------------------------------------------------------------- |
+| Acceso limitado                  | Muchos grupos, cerrados y separados; no todos llegan a ellos.                             |
+| Información efímera              | Mensajes temporales (24 h): una habitación publicada ayer "desaparece" aunque siga libre. |
+| Sin organización                 | No se puede filtrar por zona, fechas, precio, nº de personas, pareja, solo mujeres, etc.  |
+| Sin referencias                  | No hay valoraciones ni reputación de habitaciones, anfitriones o huéspedes.               |
+| Poca anticipación                | Difícil planificar y comparar antes de los días libres.                                   |
+| Lo mismo pasa con la compraventa | Botas, ropa de trabajo, autos para ir a trabajar… todo pasa por WhatsApp y se pierde.     |
 
 ## 4. Solución
 
@@ -54,15 +54,15 @@ Una plataforma con la experiencia de búsqueda de **Booking.com** (alojamiento),
 
 ## 6. Usuarios (personas)
 
-| Persona | Necesidad principal |
-|---|---|
+| Persona                                                              | Necesidad principal                                                                                                                |
+| -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | **Anfitrión FIFO** — inquilino en casa compartida que se va de swing | Publicar su habitación por las fechas exactas en que estará en la mina y cubrir su renta. Elegir a quién deja entrar (reputación). |
-| **Huésped FIFO** — vuelve a la ciudad sus días libres | Encontrar con anticipación una habitación por fechas, zona, precio y condiciones (pareja, solo mujeres…). |
-| **Propietario / inquilino principal** | Publicar habitaciones de forma recurrente. |
-| **Vendedor / comprador** | Vender o comprar botas, ropa de trabajo, autos, herramientas. |
-| **Organizador de comunidad** | Publicar eventos (asados, partidos, meetups, salidas). |
-| **Administrador / moderador** (Swingo) | Moderar contenido, gestionar reportes, banear usuarios. |
-| **Partner / anunciante** (fase posterior) | Llegar al nicho con promociones y códigos de descuento (cursos de forklift, ropa de trabajo, surf…). |
+| **Huésped FIFO** — vuelve a la ciudad sus días libres                | Encontrar con anticipación una habitación por fechas, zona, precio y condiciones (pareja, solo mujeres…).                          |
+| **Propietario / inquilino principal**                                | Publicar habitaciones de forma recurrente.                                                                                         |
+| **Vendedor / comprador**                                             | Vender o comprar botas, ropa de trabajo, autos, herramientas.                                                                      |
+| **Organizador de comunidad**                                         | Publicar eventos (asados, partidos, meetups, salidas).                                                                             |
+| **Administrador / moderador** (Swingo)                               | Moderar contenido, gestionar reportes, banear usuarios.                                                                            |
+| **Partner / anunciante** (fase posterior)                            | Llegar al nicho con promociones y códigos de descuento (cursos de forklift, ropa de trabajo, surf…).                               |
 
 ## 7. Modelo de negocio
 
@@ -78,6 +78,7 @@ Una plataforma con la experiencia de búsqueda de **Booking.com** (alojamiento),
 **Riesgo:** después del primer contacto, anfitrión y huésped intercambian teléfonos y la siguiente vez lo resuelven por WhatsApp, sin pasar por Swingo.
 
 **Respuesta:**
+
 1. **Marketplace** y **eventos** dan motivos para volver aunque no busques habitación.
 2. **Reputación portable solo dentro de Swingo**: reseñas e insignias de verificación que el usuario quiere acumular.
 3. **Funciones de valor que WhatsApp no da**: calendario de disponibilidad, alertas de búsqueda guardada ("avísame cuando haya habitación en Victoria Park del 10 al 17"), roster de swing, favoritos.
@@ -106,7 +107,7 @@ Una plataforma con la experiencia de búsqueda de **Booking.com** (alojamiento),
 - Las herramientas "genera tu app con IA" sirven para **prototipos visuales** y validar ideas en días. Para un producto con usuarios verificados, reseñas, mensajería, búsqueda geográfica, moderación, apps nativas y escala global, se quedan cortas en control, calidad, seguridad, coste a escala y propiedad del código.
 - Se puede usar un prototipo rápido (Figma / Claude) para **validar la UX con usuarios reales** antes o durante el Sprint 1.
 - **Costes de mantenimiento:** sí los hay, aunque al inicio pueden ser bajos. Componentes:
-  - Hosting de API y base de datos (hay *free tiers* suficientes para la beta).
+  - Hosting de API y base de datos (hay _free tiers_ suficientes para la beta).
   - Almacenamiento de fotos.
   - Envío de emails / SMS de verificación (el SMS es el coste variable más relevante).
   - Mapas / geocodificación.

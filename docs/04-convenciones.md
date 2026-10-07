@@ -4,19 +4,19 @@ Estas reglas aplican a todo el código del monorepo. Claude Code debe seguirlas 
 
 ## 1. Idioma
 
-| Qué | Idioma |
-|---|---|
-| Código: nombres de clases, funciones, variables, tablas, endpoints | **Inglés** |
-| Commits, nombres de ramas, PRs | **Inglés** (Conventional Commits) |
-| Comentarios de documentación (TSDoc) | **Español** (equipo hispanohablante) |
-| Documentación de producto (`docs/`) | **Español** |
-| Textos de UI | **Nunca hardcodeados**: siempre claves i18n (`en-AU` por defecto, `es` segundo idioma) |
+| Qué                                                                | Idioma                                                                                 |
+| ------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| Código: nombres de clases, funciones, variables, tablas, endpoints | **Inglés**                                                                             |
+| Commits, nombres de ramas, PRs                                     | **Inglés** (Conventional Commits)                                                      |
+| Comentarios de documentación (TSDoc)                               | **Español** (equipo hispanohablante)                                                   |
+| Documentación de producto (`docs/`)                                | **Español**                                                                            |
+| Textos de UI                                                       | **Nunca hardcodeados**: siempre claves i18n (`en-AU` por defecto, `es` segundo idioma) |
 
 ## 2. Principios
 
-- **SOLID**, especialmente *Single Responsibility* y *Dependency Inversion* (es la base de la arquitectura hexagonal).
+- **SOLID**, especialmente _Single Responsibility_ y _Dependency Inversion_ (es la base de la arquitectura hexagonal).
 - **Nombres que revelan intención.** `findAvailableRoomsForSwing()` mejor que `getData()`. Sin abreviaturas crípticas.
-- **Funciones pequeñas**, un nivel de abstracción por función. Si necesita un comentario para explicar *qué* hace, extraer una función con ese nombre.
+- **Funciones pequeñas**, un nivel de abstracción por función. Si necesita un comentario para explicar _qué_ hace, extraer una función con ese nombre.
 - **Sin efectos secundarios ocultos.** Los casos de uso declaran sus dependencias por constructor.
 - **Inmutabilidad por defecto** en el dominio (`readonly`, value objects).
 - **Errores explícitos:** el dominio lanza/devuelve errores tipados (`DomainError` y subclases, o `Result<T, E>`), nunca `throw new Error('algo')` genérico ni `null` ambiguo.
@@ -57,6 +57,7 @@ async execute(command: CreateBookingRequestCommand): Promise<BookingRequest> { .
 ```
 
 Reglas:
+
 - Formato de fecha `dd/MM/yyyy`. Usar la fecha real del día en que se escribe el código.
 - `@author`: quien escribe o pide el cambio. Por defecto `Matías Roldán`.
 - `@where`: desde dónde se invoca (controller, otro caso de uso, job, pantalla).
@@ -72,13 +73,13 @@ Reglas:
 
 ## 5. Testing
 
-| Capa | Tipo de test | Obligatorio |
-|---|---|---|
-| Dominio (entidades, value objects, servicios de dominio) | Unitario puro, sin mocks de infraestructura | **Sí**, cobertura objetivo ≥ 90 % |
-| Aplicación (casos de uso) | Unitario con *fakes* en memoria de los puertos | **Sí**, ≥ 80 % |
-| Adaptadores de infraestructura | Integración (Postgres real en Docker / Testcontainers) | Sí para repositorios |
-| API | E2E de endpoints críticos (auth, publicar, solicitar reserva, reseñar) | Sí |
-| UI | Tests de componentes + flujos críticos E2E (Playwright web / Maestro móvil) | Flujos críticos |
+| Capa                                                     | Tipo de test                                                                | Obligatorio                       |
+| -------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------- |
+| Dominio (entidades, value objects, servicios de dominio) | Unitario puro, sin mocks de infraestructura                                 | **Sí**, cobertura objetivo ≥ 90 % |
+| Aplicación (casos de uso)                                | Unitario con _fakes_ en memoria de los puertos                              | **Sí**, ≥ 80 %                    |
+| Adaptadores de infraestructura                           | Integración (Postgres real en Docker / Testcontainers)                      | Sí para repositorios              |
+| API                                                      | E2E de endpoints críticos (auth, publicar, solicitar reserva, reseñar)      | Sí                                |
+| UI                                                       | Tests de componentes + flujos críticos E2E (Playwright web / Maestro móvil) | Flujos críticos                   |
 
 - Patrón **Arrange / Act / Assert**, un comportamiento por test, nombre descriptivo: `it('rejects a booking request when dates overlap an accepted one')`.
 - TDD recomendado en el dominio: escribir el test primero.

@@ -9,6 +9,7 @@
 ## Fase A · Preparación (antes del Sprint 0)
 
 ### A1. Producto y validación
+
 - [ ] Confirmar ciudad piloto (Perth u otra) y lista de 20–30 usuarios beta de los grupos de WhatsApp.
 - [ ] Entrevistar a 5 anfitriones y 5 huéspedes FIFO: validar filtros, campos del anuncio y el flujo de solicitud.
 - [ ] Wireframes de baja fidelidad de los 5 flujos críticos (📄 `02-mvp.md` §5). Figma o bocetos en papel.
@@ -16,6 +17,7 @@
 - [ ] Revisar y priorizar el backlog con Martin (📄 `05-backlog.md`).
 
 ### A2. Cuentas y servicios
+
 - [ ] Organización en GitHub + repositorio `swingo` (privado). 🔗 [GitHub Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)
 - [ ] Dominio + email del proyecto.
 - [ ] Proyecto Supabase (`dev`; luego `staging` y `prod`) en una región cercana a los usuarios (Sídney para Australia). 🔗 [Supabase Docs](https://supabase.com/docs)
@@ -25,10 +27,12 @@
 - [ ] Gestor de secretos compartido (1Password / Bitwarden) — nunca secretos en el repo.
 
 ### A3. Entorno local
+
 - [ ] Node.js LTS, pnpm, Docker Desktop, Xcode (iOS), Android Studio (Android), `jq`, `gh` CLI.
 - [ ] Claude Code instalado y configuración del repo aplicada (📄 `08-claude-code.md` §7). 🔗 [Claude Code – Setup](https://code.claude.com/docs/en/setup)
 
 📚 **Lecturas base de la fase:**
+
 - 🔗 [Hexagonal Architecture – Alistair Cockburn](https://alistair.cockburn.us/hexagonal-architecture/)
 - 🔗 [DDD Reference – Eric Evans](https://www.domainlanguage.com/ddd/reference/)
 - 🔗 [The Scrum Guide](https://scrumguides.org/)
@@ -41,16 +45,19 @@
 **Objetivo:** un "hola mundo" de punta a punta (app → API → BD) desplegado, con CI y reglas de arquitectura activas.
 
 ### B1. Monorepo (SWG-001)
+
 - [ ] `pnpm` workspaces + Turborepo con `apps/{api,app,admin}` y `packages/{contracts,api-client,i18n,ui-tokens,config}`.
 - [ ] `tsconfig` base estricto, ESLint + Prettier compartidos, Husky + lint-staged.
 - 🔗 [pnpm workspaces](https://pnpm.io/workspaces) · [Turborepo docs](https://turborepo.dev/docs) · [Expo – Monorepos](https://docs.expo.dev/guides/monorepos/) · [TypeScript – strict](https://www.typescriptlang.org/tsconfig/#strict)
 
 ### B2. Base de datos (SWG-002)
+
 - [ ] `infra/docker-compose.yml` con Postgres + PostGIS.
 - [ ] Drizzle configurado en `apps/api`, primera migración (extensiones `postgis`, `btree_gist`).
 - 🔗 [Drizzle ORM](https://orm.drizzle.team/docs/overview) · [Drizzle – PostGIS point](https://orm.drizzle.team/docs/guides/postgis-geometry-point) · [Drizzle Kit migrations](https://orm.drizzle.team/docs/kit-overview) · [PostGIS docs](https://postgis.net/documentation/) · [PostgreSQL – Range types y exclusion constraints](https://www.postgresql.org/docs/current/rangetypes.html)
 
 ### B3. Shared kernel y primer contexto (SWG-003)
+
 - [ ] `shared/domain`: `Entity`, `AggregateRoot`, `ValueObject`, `DomainEvent`, `DomainError`, `Result`, `Id` (uuid v7), `Clock`, `Money`, `DateRange`, `GeoPoint`.
 - [ ] `shared/application`: `UseCase`, `EventBusPort`, `UnitOfWorkPort`.
 - [ ] Contexto `identity` mínimo con un caso de uso y test, para fijar el patrón que copiarán los demás.
@@ -58,16 +65,19 @@
 - 🔗 [NestJS – Modules](https://docs.nestjs.com/modules) · [NestJS – Custom providers (puertos → adaptadores)](https://docs.nestjs.com/fundamentals/custom-providers) · [dependency-cruiser](https://github.com/sverweij/dependency-cruiser) · [eslint-plugin-boundaries](https://github.com/javierbrea/eslint-plugin-boundaries) · [Vitest](https://vitest.dev/)
 
 ### B4. Contratos y cliente tipado (SWG-006)
+
 - [ ] Esquemas Zod en `packages/contracts`, OpenAPI generado, cliente en `packages/api-client`.
 - [ ] Errores en formato Problem Details.
 - 🔗 [Zod](https://zod.dev/) · [zod-to-openapi](https://github.com/asteasolutions/zod-to-openapi) · [nestjs-zod](https://github.com/BenLorantfy/nestjs-zod) · [openapi-typescript / openapi-fetch](https://openapi-ts.dev/) · [RFC 9457 Problem Details](https://www.rfc-editor.org/rfc/rfc9457)
 
 ### B5. App universal (SWG-005)
+
 - [ ] Expo + Expo Router con las 5 pestañas, NativeWind, TanStack Query, i18n (`en-AU`, `es`).
 - [ ] Corre en iOS, Android y Web.
 - 🔗 [Expo docs](https://docs.expo.dev/) · [Expo Router](https://docs.expo.dev/router/introduction/) · [NativeWind](https://www.nativewind.dev/) · [TanStack Query](https://tanstack.com/query/latest) · [expo-localization](https://docs.expo.dev/versions/latest/sdk/localization/) · [i18next / react-i18next](https://react.i18next.com/)
 
 ### B6. CI/CD y observabilidad (SWG-004, 007, 008)
+
 - [ ] GitHub Actions: install → lint → typecheck → test → build (con caché de Turborepo).
 - [ ] Despliegue automático de la API a `dev` (Railway / Fly.io / Render) con Dockerfile.
 - [ ] Builds internos con EAS (development build + preview).
@@ -153,17 +163,20 @@
 ## Fase I · Pre-lanzamiento (transversal, cerrar antes de abrir al público)
 
 ### Legal y privacidad
+
 - [ ] Revisión legal de términos y privacidad en Australia (📄 `06-legal.md`). 🔗 [OAIC – Australian Privacy Principles](https://www.oaic.gov.au/privacy/australian-privacy-principles) · [ACCC – Consumer law for businesses](https://www.accc.gov.au/business)
 - [ ] Política de privacidad y términos publicados en web y enlazados en las stores.
 - [ ] Preparado para GDPR si se abre a Europa. 🔗 [GDPR – texto oficial](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
 
 ### Seguridad
+
 - [ ] Checklist OWASP ASVS nivel 1 y Mobile Top 10. 🔗 [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) · [OWASP Mobile Top 10](https://owasp.org/www-project-mobile-top-10/)
 - [ ] Rate limiting en auth, mensajería y creación de contenido. 🔗 [NestJS – Rate limiting](https://docs.nestjs.com/security/rate-limiting)
 - [ ] Revisión de seguridad con el subagente `security-reviewer` (📄 `08-claude-code.md`).
 - [ ] Backups automáticos de BD y prueba de restauración.
 
 ### Operación
+
 - [ ] Alertas de errores (Sentry) y de caída (uptime).
 - [ ] Runbook: cómo desplegar, revertir, restaurar BD, banear usuario.
 - [ ] Plan de moderación: quién revisa reportes y en cuánto tiempo.
@@ -184,13 +197,13 @@
 
 ## Referencias transversales
 
-| Tema | Enlace |
-|---|---|
-| Testing de NestJS | 🔗 [docs.nestjs.com/fundamentals/testing](https://docs.nestjs.com/fundamentals/testing) |
-| Testcontainers (Postgres real en tests) | 🔗 [node.testcontainers.org](https://node.testcontainers.org/) |
-| E2E web | 🔗 [Playwright](https://playwright.dev/docs/intro) |
-| E2E móvil | 🔗 [Maestro](https://docs.maestro.dev/) |
-| React Native Testing Library | 🔗 [callstack.github.io/react-native-testing-library](https://callstack.github.io/react-native-testing-library/) |
-| Conventional Commits | 🔗 [conventionalcommits.org](https://www.conventionalcommits.org/) |
-| Clean Code / refactoring | 🔗 [refactoring.guru](https://refactoring.guru/) |
-| Claude Code (buenas prácticas) | 🔗 [code.claude.com/docs/en/best-practices](https://code.claude.com/docs/en/best-practices) |
+| Tema                                    | Enlace                                                                                                           |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Testing de NestJS                       | 🔗 [docs.nestjs.com/fundamentals/testing](https://docs.nestjs.com/fundamentals/testing)                          |
+| Testcontainers (Postgres real en tests) | 🔗 [node.testcontainers.org](https://node.testcontainers.org/)                                                   |
+| E2E web                                 | 🔗 [Playwright](https://playwright.dev/docs/intro)                                                               |
+| E2E móvil                               | 🔗 [Maestro](https://docs.maestro.dev/)                                                                          |
+| React Native Testing Library            | 🔗 [callstack.github.io/react-native-testing-library](https://callstack.github.io/react-native-testing-library/) |
+| Conventional Commits                    | 🔗 [conventionalcommits.org](https://www.conventionalcommits.org/)                                               |
+| Clean Code / refactoring                | 🔗 [refactoring.guru](https://refactoring.guru/)                                                                 |
+| Claude Code (buenas prácticas)          | 🔗 [code.claude.com/docs/en/best-practices](https://code.claude.com/docs/en/best-practices)                      |

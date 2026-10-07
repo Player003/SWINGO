@@ -29,27 +29,27 @@
 
 ## 2. Stack (ADR-0002, ADR-0003)
 
-| Capa | Tecnología | Por qué |
-|---|---|---|
-| Lenguaje | **TypeScript** (strict) en todo el monorepo | Un solo lenguaje para cliente y servidor; tipos compartidos. |
-| Monorepo | **pnpm workspaces + Turborepo** | Builds incrementales, caché, paquetes compartidos. |
-| Cliente universal | **Expo (React Native) + Expo Router** | Una base de código → iOS, Android y Web. Builds con EAS. |
-| Estilos | **NativeWind** (Tailwind para RN) + design tokens en `packages/ui-tokens` | Rápido, consistente en las 3 plataformas. |
-| Estado servidor (cliente) | **TanStack Query** | Caché, reintentos, paginación infinita. |
-| Formularios | **react-hook-form + Zod** (esquemas de `packages/contracts`) | Misma validación en cliente y servidor. |
-| Panel admin | **Next.js + shadcn/ui** | Tablas y formularios densos, solo web. |
-| Backend | **NestJS** sobre Node.js LTS | Módulos y DI que encajan con contextos y puertos. **El framework vive solo en los bordes.** |
-| Base de datos | **PostgreSQL + PostGIS** | Relacional, búsquedas geográficas y por rango de fechas (`daterange`, índices GiST). |
-| Acceso a datos | **Drizzle ORM** (solo en adaptadores) | SQL explícito, buen soporte de tipos y PostGIS. |
-| Contratos API | **Zod → OpenAPI 3.1** + cliente tipado generado (`packages/api-client`) | Una fuente de verdad para web, móvil y API. |
-| Auth / BaaS inicial | **Supabase** (Auth con email, OTP por SMS, Google, Apple · Postgres gestionado · Storage) | Bajo coste y rápido para el MVP. Todo detrás de puertos → migrable a AWS/GCP. |
-| Tiempo real | WebSocket (Socket.IO gateway en NestJS) | Chat; los mensajes pasan por el dominio (moderación, antiestafa). |
-| Push | **Expo Notifications** | iOS + Android con una sola API. |
-| Email | Resend (o SES) vía `EmailSenderPort` | |
-| Mapas / geocoding | Mapbox vía `GeocodingPort` | Autocompletado de direcciones y mapas. |
-| Analítica de producto | PostHog vía `AnalyticsPort` | El tráfico es el activo del negocio. |
-| Errores / observabilidad | Sentry + logs estructurados (pino) | |
-| CI/CD | GitHub Actions · EAS Build/Submit · API en contenedor Docker (Railway / Fly.io / Render) | |
+| Capa                      | Tecnología                                                                                | Por qué                                                                                     |
+| ------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Lenguaje                  | **TypeScript** (strict) en todo el monorepo                                               | Un solo lenguaje para cliente y servidor; tipos compartidos.                                |
+| Monorepo                  | **pnpm workspaces + Turborepo**                                                           | Builds incrementales, caché, paquetes compartidos.                                          |
+| Cliente universal         | **Expo (React Native) + Expo Router**                                                     | Una base de código → iOS, Android y Web. Builds con EAS.                                    |
+| Estilos                   | **NativeWind** (Tailwind para RN) + design tokens en `packages/ui-tokens`                 | Rápido, consistente en las 3 plataformas.                                                   |
+| Estado servidor (cliente) | **TanStack Query**                                                                        | Caché, reintentos, paginación infinita.                                                     |
+| Formularios               | **react-hook-form + Zod** (esquemas de `packages/contracts`)                              | Misma validación en cliente y servidor.                                                     |
+| Panel admin               | **Next.js + shadcn/ui**                                                                   | Tablas y formularios densos, solo web.                                                      |
+| Backend                   | **NestJS** sobre Node.js LTS                                                              | Módulos y DI que encajan con contextos y puertos. **El framework vive solo en los bordes.** |
+| Base de datos             | **PostgreSQL + PostGIS**                                                                  | Relacional, búsquedas geográficas y por rango de fechas (`daterange`, índices GiST).        |
+| Acceso a datos            | **Drizzle ORM** (solo en adaptadores)                                                     | SQL explícito, buen soporte de tipos y PostGIS.                                             |
+| Contratos API             | **Zod → OpenAPI 3.1** + cliente tipado generado (`packages/api-client`)                   | Una fuente de verdad para web, móvil y API.                                                 |
+| Auth / BaaS inicial       | **Supabase** (Auth con email, OTP por SMS, Google, Apple · Postgres gestionado · Storage) | Bajo coste y rápido para el MVP. Todo detrás de puertos → migrable a AWS/GCP.               |
+| Tiempo real               | WebSocket (Socket.IO gateway en NestJS)                                                   | Chat; los mensajes pasan por el dominio (moderación, antiestafa).                           |
+| Push                      | **Expo Notifications**                                                                    | iOS + Android con una sola API.                                                             |
+| Email                     | Resend (o SES) vía `EmailSenderPort`                                                      |                                                                                             |
+| Mapas / geocoding         | Mapbox vía `GeocodingPort`                                                                | Autocompletado de direcciones y mapas.                                                      |
+| Analítica de producto     | PostHog vía `AnalyticsPort`                                                               | El tráfico es el activo del negocio.                                                        |
+| Errores / observabilidad  | Sentry + logs estructurados (pino)                                                        |                                                                                             |
+| CI/CD                     | GitHub Actions · EAS Build/Submit · API en contenedor Docker (Railway / Fly.io / Render)  |                                                                                             |
 
 ## 3. Estructura del monorepo
 
@@ -129,20 +129,20 @@ apps/api/src/
 
 ### 4.3 Contextos acotados
 
-| Contexto | Responsabilidad | Agregados principales |
-|---|---|---|
-| `identity` | Usuarios, perfiles, verificación (email, teléfono, futuro ID), roles, roster de swing, aceptación de términos | `User`, `Profile`, `TermsAcceptance`, `SwingRoster` |
-| `accommodation` | Anuncios de habitaciones, fotos, condiciones, ubicación, disponibilidad, búsqueda | `Listing` (con `AvailabilityWindow[]`, `Photo[]`) |
-| `booking` | Solicitudes de reserva y su ciclo de vida | `BookingRequest` |
-| `reviews` | Reseñas mutuas tras estancias completadas, reputación agregada | `Review`, `ReputationSummary` |
-| `messaging` | Conversaciones 1-a-1 ligadas a un anuncio, solicitud o artículo | `Conversation`, `Message` |
-| `marketplace` | Artículos de segunda mano, categorías y atributos | `MarketplaceItem`, `Category` |
-| `community` | Eventos y asistencia (fase 2: guías) | `Event`, `Attendance` |
-| `moderation` | Reportes, acciones de moderación, auditoría, filtros de contenido | `Report`, `ModerationAction` |
-| `notifications` | Push, email, preferencias, alertas de búsqueda guardada | `Notification`, `SavedSearch` |
-| `engagement` | Favoritos / guardados | `SavedItem` |
-| *(futuro)* `promotions` | Partners, ofertas, códigos de descuento, espacios patrocinados | `Partner`, `Offer`, `Placement` |
-| *(futuro)* `payments` | Pagos entre usuarios, comisiones, depósitos, reembolsos — solo si el negocio lo decide (ADR-0004). Pasarela detrás de `PaymentGatewayPort` | `Payment`, `Payout`, `FeePolicy` |
+| Contexto                | Responsabilidad                                                                                                                            | Agregados principales                               |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
+| `identity`              | Usuarios, perfiles, verificación (email, teléfono, futuro ID), roles, roster de swing, aceptación de términos                              | `User`, `Profile`, `TermsAcceptance`, `SwingRoster` |
+| `accommodation`         | Anuncios de habitaciones, fotos, condiciones, ubicación, disponibilidad, búsqueda                                                          | `Listing` (con `AvailabilityWindow[]`, `Photo[]`)   |
+| `booking`               | Solicitudes de reserva y su ciclo de vida                                                                                                  | `BookingRequest`                                    |
+| `reviews`               | Reseñas mutuas tras estancias completadas, reputación agregada                                                                             | `Review`, `ReputationSummary`                       |
+| `messaging`             | Conversaciones 1-a-1 ligadas a un anuncio, solicitud o artículo                                                                            | `Conversation`, `Message`                           |
+| `marketplace`           | Artículos de segunda mano, categorías y atributos                                                                                          | `MarketplaceItem`, `Category`                       |
+| `community`             | Eventos y asistencia (fase 2: guías)                                                                                                       | `Event`, `Attendance`                               |
+| `moderation`            | Reportes, acciones de moderación, auditoría, filtros de contenido                                                                          | `Report`, `ModerationAction`                        |
+| `notifications`         | Push, email, preferencias, alertas de búsqueda guardada                                                                                    | `Notification`, `SavedSearch`                       |
+| `engagement`            | Favoritos / guardados                                                                                                                      | `SavedItem`                                         |
+| _(futuro)_ `promotions` | Partners, ofertas, códigos de descuento, espacios patrocinados                                                                             | `Partner`, `Offer`, `Placement`                     |
+| _(futuro)_ `payments`   | Pagos entre usuarios, comisiones, depósitos, reembolsos — solo si el negocio lo decide (ADR-0004). Pasarela detrás de `PaymentGatewayPort` | `Payment`, `Payout`, `FeePolicy`                    |
 
 ### 4.4 Comunicación entre contextos
 
@@ -175,7 +175,11 @@ export class PublishListingUseCase implements UseCase<PublishListingCommand, voi
     if (!listing) throw new ListingNotFoundError(cmd.listingId);
     listing.assertOwnedBy(cmd.requesterId);
 
-    const hasAccepted = await this.terms.hasAcceptedCurrent(cmd.requesterId, 'LISTING_PUBLICATION', listing.countryCode);
+    const hasAccepted = await this.terms.hasAcceptedCurrent(
+      cmd.requesterId,
+      'LISTING_PUBLICATION',
+      listing.countryCode,
+    );
     listing.publish({ termsAccepted: hasAccepted, now: this.clock.now() }); // reglas en el dominio
 
     await this.listings.save(listing);
@@ -219,22 +223,22 @@ Campos clave:
 - **TERMS_ACCEPTANCE**: `user_id`, `terms_type`, `country_code`, `locale`, `version`, `accepted_at`, `ip_hash`, `user_agent`.
 - **REPORT / MODERATION_ACTION / AUDIT_LOG**: entidad reportada (`target_type`, `target_id`), motivo, estado, moderador, acción, fecha.
 
-Convenciones de BD: `snake_case`, PK `uuid` v7, `created_at`/`updated_at` en todas, **dinero en unidades menores (enteros)**, fechas de estancia como `date`/`daterange` (sin hora), instantes como `timestamptz` en UTC, *soft delete* solo donde haya obligación de conservar (reseñas, auditoría).
+Convenciones de BD: `snake_case`, PK `uuid` v7, `created_at`/`updated_at` en todas, **dinero en unidades menores (enteros)**, fechas de estancia como `date`/`daterange` (sin hora), instantes como `timestamptz` en UTC, _soft delete_ solo donde haya obligación de conservar (reseñas, auditoría).
 
 ## 6. Diseño para escala y visión global
 
-| Preocupación | Decisión desde el día 1 | Evolución prevista |
-|---|---|---|
-| Multi-país | `country_code`, dirección genérica (admin area / locality / sub-locality), términos por país | Configuración por país (moneda por defecto, categorías, textos legales) |
-| Idiomas | i18n en clientes y emails; contenido de usuario guarda `locale` | Traducción automática opcional de anuncios |
-| Monedas | `Money` value object (importe entero + ISO 4217) | Conversión solo informativa |
-| Zonas horarias | Instantes en UTC; estancias como fechas locales + `timezone` del anuncio | — |
-| Carga | API *stateless*, escalado horizontal; imágenes por CDN | Réplicas de lectura, caché (Redis) |
-| Búsqueda | PostGIS + filtros SQL detrás de `ListingSearchPort` | Motor dedicado (Meilisearch / OpenSearch / Typesense) con otro adaptador |
-| Eventos asíncronos | Outbox + bus en proceso | Cola gestionada; extraer contextos a servicios si lo exige la carga |
-| Proveedores | Todo servicio externo detrás de un puerto | Cambiar Supabase → AWS/GCP sin tocar dominio |
-| Datos personales | Minimización, exportar/borrar cuenta | Residencia de datos por región si se exige |
-| Feature flags | Flags simples (PostHog) | Lanzamientos graduales por país |
+| Preocupación       | Decisión desde el día 1                                                                      | Evolución prevista                                                       |
+| ------------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Multi-país         | `country_code`, dirección genérica (admin area / locality / sub-locality), términos por país | Configuración por país (moneda por defecto, categorías, textos legales)  |
+| Idiomas            | i18n en clientes y emails; contenido de usuario guarda `locale`                              | Traducción automática opcional de anuncios                               |
+| Monedas            | `Money` value object (importe entero + ISO 4217)                                             | Conversión solo informativa                                              |
+| Zonas horarias     | Instantes en UTC; estancias como fechas locales + `timezone` del anuncio                     | —                                                                        |
+| Carga              | API _stateless_, escalado horizontal; imágenes por CDN                                       | Réplicas de lectura, caché (Redis)                                       |
+| Búsqueda           | PostGIS + filtros SQL detrás de `ListingSearchPort`                                          | Motor dedicado (Meilisearch / OpenSearch / Typesense) con otro adaptador |
+| Eventos asíncronos | Outbox + bus en proceso                                                                      | Cola gestionada; extraer contextos a servicios si lo exige la carga      |
+| Proveedores        | Todo servicio externo detrás de un puerto                                                    | Cambiar Supabase → AWS/GCP sin tocar dominio                             |
+| Datos personales   | Minimización, exportar/borrar cuenta                                                         | Residencia de datos por región si se exige                               |
+| Feature flags      | Flags simples (PostHog)                                                                      | Lanzamientos graduales por país                                          |
 
 ## 7. Cliente (apps/app)
 
@@ -268,9 +272,9 @@ apps/app/
 
 ## 9. Entornos
 
-| Entorno | Uso |
-|---|---|
-| `local` | docker-compose con Postgres+PostGIS; Supabase local opcional; fakes de puertos externos |
-| `dev` | Despliegue automático desde `main` |
-| `staging` | Beta cerrada / QA, datos ficticios |
-| `prod` | Producción |
+| Entorno   | Uso                                                                                     |
+| --------- | --------------------------------------------------------------------------------------- |
+| `local`   | docker-compose con Postgres+PostGIS; Supabase local opcional; fakes de puertos externos |
+| `dev`     | Despliegue automático desde `main`                                                      |
+| `staging` | Beta cerrada / QA, datos ficticios                                                      |
+| `prod`    | Producción                                                                              |

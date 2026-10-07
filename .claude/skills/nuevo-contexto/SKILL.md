@@ -1,7 +1,7 @@
 ---
 name: nuevo-contexto
 description: Crea el esqueleto de un nuevo contexto acotado hexagonal en el backend de Swingo (domain, application, infrastructure, interfaces y módulo NestJS) siguiendo el patrón del proyecto.
-argument-hint: "nombre-del-contexto"
+argument-hint: 'nombre-del-contexto'
 disable-model-invocation: true
 ---
 

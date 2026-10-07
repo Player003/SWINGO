@@ -4,14 +4,14 @@
 
 **Scrum ligero** adaptado a un equipo pequeño (fundador de producto + desarrollador + Claude Code como asistente).
 
-| Rol | Quién | Responsabilidad |
-|---|---|---|
-| Product Owner | Fundador de la idea (vive en Australia, conoce el nicho FIFO) | Prioriza el backlog, valida historias, consigue usuarios beta en los grupos de WhatsApp. |
-| Tech Lead / Dev | Matías Roldán | Arquitectura, desarrollo, calidad, despliegues. |
-| Asistente de desarrollo | Claude Code | Implementa historias siguiendo `CLAUDE.md`, escribe tests, propone refactors. **No decide alcance ni arquitectura sin consultar.** |
+| Rol                     | Quién                                                         | Responsabilidad                                                                                                                    |
+| ----------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Product Owner           | Fundador de la idea (vive en Australia, conoce el nicho FIFO) | Prioriza el backlog, valida historias, consigue usuarios beta en los grupos de WhatsApp.                                           |
+| Tech Lead / Dev         | Matías Roldán                                                 | Arquitectura, desarrollo, calidad, despliegues.                                                                                    |
+| Asistente de desarrollo | Claude Code                                                   | Implementa historias siguiendo `CLAUDE.md`, escribe tests, propone refactors. **No decide alcance ni arquitectura sin consultar.** |
 
 - **Sprints de 2 semanas.**
-- Ceremonias mínimas: *planning* (60 min), *review* con demo al PO (30 min), *retro* (20 min). Seguimiento asíncrono por chat.
+- Ceremonias mínimas: _planning_ (60 min), _review_ con demo al PO (30 min), _retro_ (20 min). Seguimiento asíncrono por chat.
 - Herramienta de backlog: a decidir (GitHub Projects recomendado por estar junto al código). Mientras tanto, `docs/05-backlog.md` es la fuente de verdad.
 
 ## 2. Historias de usuario
@@ -36,6 +36,7 @@ Las historias cumplen **INVEST** (independiente, negociable, valiosa, estimable,
 ## 3. Definition of Ready (DoR)
 
 Una historia entra al sprint si:
+
 - [ ] Tiene criterios de aceptación claros y verificables.
 - [ ] Está estimada y es ≤ 8 puntos.
 - [ ] Se conoce el contexto acotado afectado y las dependencias.
@@ -45,6 +46,7 @@ Una historia entra al sprint si:
 ## 4. Definition of Done (DoD)
 
 Una historia está terminada cuando:
+
 - [ ] Cumple todos los criterios de aceptación.
 - [ ] Respeta la arquitectura hexagonal (el check de dependencias pasa en CI).
 - [ ] Tiene tests: dominio y casos de uso unitarios; integración si toca persistencia; E2E si es un flujo crítico.
@@ -60,16 +62,16 @@ Una historia está terminada cuando:
 
 ## 5. Roadmap de sprints (tentativo)
 
-| Sprint | Objetivo | Historias principales |
-|---|---|---|
-| **0** | *Walking skeleton* | Monorepo, CI/CD, Postgres local, NestJS con un contexto de ejemplo, Expo corriendo en iOS/Android/Web, auth de punta a punta, despliegue en `dev`. |
-| **1** | Identidad | Registro/login, verificación email + teléfono, perfil, aceptación de términos. |
-| **2** | Publicar | Crear anuncio, fotos, condiciones, ubicación, disponibilidad, publicar/pausar. |
-| **3** | Buscar | Búsqueda con filtros y fechas, lista + mapa, detalle de anuncio, favoritos. |
-| **4** | Conectar y confiar | Solicitudes de reserva, chat, notificaciones, reseñas, moderación básica. → **Beta cerrada R1** |
-| **5** | Marketplace | Publicar y buscar artículos, chat con vendedor. |
-| **6** | Comunidad y retención | Eventos, búsquedas guardadas con alertas, panel admin completo. |
-| **7** | Diferenciación y stores | Roster de swing, mejoras UX de la beta, publicación en App Store y Google Play. |
+| Sprint | Objetivo                | Historias principales                                                                                                                              |
+| ------ | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **0**  | _Walking skeleton_      | Monorepo, CI/CD, Postgres local, NestJS con un contexto de ejemplo, Expo corriendo en iOS/Android/Web, auth de punta a punta, despliegue en `dev`. |
+| **1**  | Identidad               | Registro/login, verificación email + teléfono, perfil, aceptación de términos.                                                                     |
+| **2**  | Publicar                | Crear anuncio, fotos, condiciones, ubicación, disponibilidad, publicar/pausar.                                                                     |
+| **3**  | Buscar                  | Búsqueda con filtros y fechas, lista + mapa, detalle de anuncio, favoritos.                                                                        |
+| **4**  | Conectar y confiar      | Solicitudes de reserva, chat, notificaciones, reseñas, moderación básica. → **Beta cerrada R1**                                                    |
+| **5**  | Marketplace             | Publicar y buscar artículos, chat con vendedor.                                                                                                    |
+| **6**  | Comunidad y retención   | Eventos, búsquedas guardadas con alertas, panel admin completo.                                                                                    |
+| **7**  | Diferenciación y stores | Roster de swing, mejoras UX de la beta, publicación en App Store y Google Play.                                                                    |
 
 Al final de cada sprint: **demo con el PO** y, desde el sprint 4, feedback de usuarios beta reales.
 

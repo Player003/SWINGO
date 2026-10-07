@@ -1,7 +1,7 @@
 ---
 name: nueva-historia
 description: Redacta una nueva historia de usuario para el backlog de Swingo con formato INVEST, criterios de aceptación en Gherkin, notas técnicas y estimación.
-argument-hint: "descripción breve de la funcionalidad"
+argument-hint: 'descripción breve de la funcionalidad'
 disable-model-invocation: true
 ---
 

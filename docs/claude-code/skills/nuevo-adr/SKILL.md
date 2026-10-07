@@ -1,7 +1,7 @@
 ---
 name: nuevo-adr
 description: Crea un Architecture Decision Record (ADR) en docs/adr con el formato del proyecto Swingo.
-argument-hint: "título de la decisión"
+argument-hint: 'título de la decisión'
 disable-model-invocation: true
 ---
 

@@ -27,6 +27,7 @@ Actualmente, una de las alternativas utilizadas por los trabajadores FIFO para e
 Una plataforma donde toda la información esté centralizada, organizada y disponible con anticipación, permitiendo a los trabajadores encontrar exactamente lo que necesitan mediante filtros y sin comisiones.
 
 El usuario podrá:
+
 - Buscar habitaciones por ubicación, fechas, características, precio y disponibilidad.
 - Consultar fotografías, descripciones, condiciones y referencias de otros usuarios.
 - Publicar habitaciones disponibles durante sus swings.
@@ -36,6 +37,7 @@ El usuario podrá:
 Swingo transforma información dispersa en una plataforma organizada, accesible y confiable.
 
 **4. Funcionalidades esenciales del MVP**
+
 - Registro y perfiles de usuarios.
 - Buscador de alojamiento con filtros y calendario.
 - Publicación de habitaciones con fotos, precios y disponibilidad.
@@ -66,7 +68,7 @@ Swingo transforma información dispersa en una plataforma organizada, accesible 
 
 ## Audio 1 (3:52) — El problema y el modelo de negocio
 
-> Desde que estoy aquí en Australia noto algo. La gente que hace FIFO —la gente que vuela en avión a la mina por una semana o dos y luego vuelve—… Generalmente acá todos los backpackers alquilan casa compartida. Y lo interesante es que la gente que se va una semana o dos a la mina siempre pone su habitación disponible para que otra persona que también está haciendo FIFO y justo esté en la ciudad ocupe la habitación. Entonces es un *win-win*: la persona que vuelve a la ciudad tiene dónde quedarse y la persona que se va a la mina no paga la renta al pedo, alguien se la está pagando por él.
+> Desde que estoy aquí en Australia noto algo. La gente que hace FIFO —la gente que vuela en avión a la mina por una semana o dos y luego vuelve—… Generalmente acá todos los backpackers alquilan casa compartida. Y lo interesante es que la gente que se va una semana o dos a la mina siempre pone su habitación disponible para que otra persona que también está haciendo FIFO y justo esté en la ciudad ocupe la habitación. Entonces es un _win-win_: la persona que vuelve a la ciudad tiene dónde quedarse y la persona que se va a la mina no paga la renta al pedo, alguien se la está pagando por él.
 >
 > ¿Cuál es el tema? Que hace 3 años el único método que veo para que la gente se ponga en contacto es a través de grupos de WhatsApp cerrados. Es medio confuso porque hay muchos grupos separados. Muchos grupos ponen que cada 24 horas se borra todo el historial. Si alguien puso ayer que tiene una habitación disponible, por más que siga libre no te enteraste, porque el mensaje ya está borrado. Y es bastante desorganizado tener que buscar en un chat grupal la zona que te interesa, el precio, que diga pareja, que sea para una persona, que sea solo para mujeres…
 >

@@ -13,12 +13,14 @@ Al mismo tiempo, el modelo de negocio **puede cambiar** al escalar (nuevos país
 ## Decisión
 
 **Para el MVP:**
+
 - No existe ningún flujo de pago, depósito, retención ni comisión en Swingo.
 - Los precios de anuncios y artículos son **informativos**.
 - La "reserva" es una **solicitud de reserva** que habilita el contacto; el acuerdo y el pago se hacen fuera de Swingo.
 - La monetización inicial será por **publicidad y partners** (fase 2).
 
 **Preparación para escalar (sin implementar nada de pagos):**
+
 - El dinero se modela siempre con el value object `Money` (importe entero en unidades menores + ISO 4217), nunca con `number` suelto.
 - `BookingRequest` y `MarketplaceItem` tienen máquinas de estados **extensibles**: se podrán añadir estados como `AWAITING_PAYMENT` o `PAID` sin romper los existentes.
 - Se reserva un contexto acotado futuro **`payments`** (pasarela detrás de `PaymentGatewayPort`, p. ej. Stripe Connect para pagos entre usuarios). Los demás contextos solo reaccionarían a sus eventos (`PaymentSucceeded`, `PaymentRefunded`…), sin depender de él.

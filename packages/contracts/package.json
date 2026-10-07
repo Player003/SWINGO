@@ -1,0 +1,17 @@
+{
+  "name": "@swingo/contracts",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo 'contracts build stub'",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "echo 'no tests yet' && exit 0"
+  },
+  "devDependencies": {
+    "@swingo/config": "workspace:*",
+    "eslint": "^9.27.0",
+    "typescript": "^5.8.3"
+  }
+}

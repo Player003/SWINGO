@@ -2,7 +2,7 @@
 
 ## Qué es
 
-Plataforma **multiplataforma (iOS, Android, Web)** para trabajadores **FIFO** (*Fly-In, Fly-Out*) y "golondrina" que centraliza **alojamiento** (estilo Booking), **marketplace de segunda mano** (estilo Facebook Marketplace) y **comunidad** (eventos; luego guías). Reemplaza a los grupos cerrados de WhatsApp donde hoy se ofrecen habitaciones mientras el inquilino está en la mina durante su *swing*.
+Plataforma **multiplataforma (iOS, Android, Web)** para trabajadores **FIFO** (_Fly-In, Fly-Out_) y "golondrina" que centraliza **alojamiento** (estilo Booking), **marketplace de segunda mano** (estilo Facebook Marketplace) y **comunidad** (eventos; luego guías). Reemplaza a los grupos cerrados de WhatsApp donde hoy se ofrecen habitaciones mientras el inquilino está en la mina durante su _swing_.
 
 - Lanzamiento: **Australia** (ciudad piloto: Perth, a confirmar). Visión: **global**.
 - Equipo: **Martin Melleretzky** (fundador de producto / PO, en Australia) + **Matías Roldán** (CTO) + Claude Code.
@@ -38,6 +38,7 @@ Plataforma **multiplataforma (iOS, Android, Web)** para trabajadores **FIFO** (*
 @docs/04-convenciones.md
 
 Lo esencial:
+
 - Código, nombres, commits y endpoints en **inglés**; documentación TSDoc y `docs/` en **español**.
 - **Cabecera TSDoc en cada clase y método público** con `@author Matías Roldán`, `@date dd/MM/yyyy`, `@param`, `@returns`, `@throws`, `@where` (ver plantilla en convenciones). Al modificar: añadir `@modified`.
 - TS `strict`, sin `any`, exports nombrados, archivos `kebab-case` con sufijo de rol (`.entity.ts`, `.use-case.ts`, `.port.ts`, `.repository.ts`, `.controller.ts`, `.spec.ts`).
@@ -70,24 +71,24 @@ docker compose -f infra/docker-compose.yml up -d   # Postgres + PostGIS
 
 ## Mapa de documentación
 
-| Archivo | Cuándo leerlo |
-|---|---|
-| `docs/01-vision-producto.md` | Entender el porqué, usuarios, modelo de negocio, principios. |
-| `docs/02-mvp.md` | **Reglas de negocio**, alcance, flujos críticos, requisitos no funcionales. |
-| `docs/03-arquitectura.md` | Estructura, contextos, modelo de datos, API, escala. |
-| `docs/04-convenciones.md` | Clean Code, documentación, testing, git. |
-| `docs/05-agile.md` | Roles, DoR/DoD, roadmap de sprints, flujo con Claude Code. |
-| `docs/05-backlog.md` | Historias con IDs `SWG-XXX` y criterios de aceptación. |
-| `docs/06-legal.md` | Responsabilidad legal y su reflejo en el sistema. |
-| `docs/07-ruta-implementacion.md` | Checklist de implementación por fases con enlaces a documentación oficial. |
-| `docs/08-claude-code.md` | Cómo trabajar con Claude Code: subagentes, skills, hooks, multi-agente. |
-| `docs/adr/` | Decisiones de arquitectura. |
-| `docs/fuentes/brief-original.md` | Brief, textos y transcripciones originales del fundador. |
-| `docs/claude-code/` | Plantillas de agentes, skills, hooks y settings (instalar con `bash docs/claude-code/instalar.sh`). |
+| Archivo                          | Cuándo leerlo                                                                                       |
+| -------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `docs/01-vision-producto.md`     | Entender el porqué, usuarios, modelo de negocio, principios.                                        |
+| `docs/02-mvp.md`                 | **Reglas de negocio**, alcance, flujos críticos, requisitos no funcionales.                         |
+| `docs/03-arquitectura.md`        | Estructura, contextos, modelo de datos, API, escala.                                                |
+| `docs/04-convenciones.md`        | Clean Code, documentación, testing, git.                                                            |
+| `docs/05-agile.md`               | Roles, DoR/DoD, roadmap de sprints, flujo con Claude Code.                                          |
+| `docs/05-backlog.md`             | Historias con IDs `SWG-XXX` y criterios de aceptación.                                              |
+| `docs/06-legal.md`               | Responsabilidad legal y su reflejo en el sistema.                                                   |
+| `docs/07-ruta-implementacion.md` | Checklist de implementación por fases con enlaces a documentación oficial.                          |
+| `docs/08-claude-code.md`         | Cómo trabajar con Claude Code: subagentes, skills, hooks, multi-agente.                             |
+| `docs/adr/`                      | Decisiones de arquitectura.                                                                         |
+| `docs/fuentes/brief-original.md` | Brief, textos y transcripciones originales del fundador.                                            |
+| `docs/claude-code/`              | Plantillas de agentes, skills, hooks y settings (instalar con `bash docs/claude-code/instalar.sh`). |
 
 ## Glosario
 
-- **FIFO** — *Fly-In, Fly-Out*: trabajador que vuela al sitio (mina, planta) por un periodo y vuelve a la ciudad en sus días libres.
+- **FIFO** — _Fly-In, Fly-Out_: trabajador que vuela al sitio (mina, planta) por un periodo y vuelve a la ciudad en sus días libres.
 - **Swing** — periodo de trabajo en el sitio. **Roster** — patrón de swing, p. ej. `2:1` (2 semanas dentro, 1 fuera), `8:6` (días).
 - **Golondrina** — trabajador temporal/rotativo que se desplaza según el trabajo.
 - **Anfitrión (host)** — quien ofrece la habitación (a menudo inquilino que se va de swing). **Huésped (guest)** — quien la ocupa.
