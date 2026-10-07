@@ -60,7 +60,7 @@ Swingo transforma información dispersa en una plataforma organizada, accesible 
 
 ## Texto 3 — Nota sobre la interfaz
 
-> Nunca hice un brief para un programador pero si me decís qué más le falta con gusto lo detallo más. Básicamente está la idea general y el problema que resuelve. En cuanto a la interfaz sería el mismo modelo de búsqueda de habitaciones que Booking por ejemplo para no complicarse, y marketplace igual al de Facebook con los filtros de búsqueda. Y pienso que debería haber una autenticación de usuario para que las reseñas y las reservas sean verdaderas.
+> En cuanto a la interfaz sería el mismo modelo de búsqueda de Imoova, y marketplace igual al de Facebook con los filtros de búsqueda. Y pienso que debería haber una autenticación de usuario para que las reseñas y las reservas sean verdaderas.
 
 ---
 
@@ -85,7 +85,3 @@ Swingo transforma información dispersa en una plataforma organizada, accesible 
 > Y si tiene tráfico, que otras **empresas** estén interesadas en publicitar productos o servicios que le sirvan a este mercado: cosas para backpackers, indumentaria más barata, clases de surf, capacitaciones, **certificaciones** (p. ej. forklift). Por ejemplo, si entras desde la página tienes un **descuento** con ellos; así garantizas que la gente vaya a la página.
 >
 > También que en la plataforma encuentres **información útil y bien resumida**: si quiero seguir en FIFO pero en un nuevo puesto (p. ej. manejar camiones), pequeños **artículos / "islas de información"**: el paso a paso, esta certificación, este tiempo, aplicar a estas mineras, estas son tus opciones, acá tenés contacto, acá tenés código de descuento, estos son los tiempos, estos son los salarios.
-
-## Audio 3 (0:50) — Duda sobre herramientas de IA y costes
-
-> Había escuchado que hay aplicaciones o páginas con inteligencia artificial que te permiten desarrollar una aplicación gratis o pagando poco, pero no sé cuál es el resultado. ¿Esto que quiero hacer es algo que la IA puede hacer, por lo menos como prototipo, o hay que desarrollarla de cero, bien hecha? ¿Va a tener costes de mantenimiento? De nuevo, **no quiero que haya transacciones dentro de la plataforma**: simplemente se busca y se pone información para poner en contacto a gente que busca y gente que ofrece.
